@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+
+        function checkAnagram() {
+
+            // Take the inputs
+            var string1 = document.getElementById("a").value;
+            var string2 = document.getElementById("b").value;
+
+            // Breaks down the inputs, sorts them into alphabetical order, so the function can compare and see if the characters match.
+            let sorted1 = string1.split('').sort().join('').toLowerCase();
+            let sorted2 = string2.split('').sort().join('').toLowerCase();
+
+            // If the characters match print output1, else print output2
+            if (sorted1 == sorted2) {
+                document.getElementById("output1").innerHTML = "This is an anagram!"
+            } else {
+                document.getElementById("output2").innerHTML = "This is not an anagram!"
+            }
+        
+        }
+    
+    </script>
+</head>
+<body>
+<div class="flex items-center justify-center h-screen bg-blue-100 p-4">
+      <div class="bg-white rounded-2xl border shadow-x1 p-10 max-w-lg">
+        <div class="flex flex-col items-center space-y-4">
+          <h1 class="font-bold text-2xl text-gray-700 w-4/6 text-center">
+            Is This An Anagram?
+          </h1>
+          <p class="text-sm text-gray-500 text-center w-5/6">
+            Please enter 2 words to check if they're an anagram of eachother!
+          </p>
+                <input
+                id="a"
+                name="a"
+                type="text"
+                placeholder="Word 1"
+                class="border-2 rounded-lg w-full h-12 px-4"
+            />
+            <input
+                id="b"
+                name="b"
+                type="text"
+                placeholder="Word 2"
+                class="border-2 rounded-lg w-full h-12 px-4"
+            />
+            <button
+            type="submit"
+            id="run"
+            onclick="checkAnagram()"
+                class="bg-blue-400 text-white rounded-md hover:bg-blue-500 font-semibold px-4 py-3 w-full"
+            >
+                Check
+            </button> 
+        </div>
+        <div class="bg-white rounded-2xl shadow-x1 p-12 max-w-lg">
+            <div class="items-center space-y-4">
+              <h1 id="output1" class="font-bold text-2xl text-green-500 text-center">
+                
+              </h1>
+              <h1 id="output2" class="font-bold text-2xl text-red-500 text-center">
+                
+            </h1>    
+          </div>
+        </div>
+        <div class="pt-4">
+            <a
+            href="/"
+            id="restart"
+                class="bg-white text-blue-500 border border-blue-500 rounded-md hover:text-green-500 hover:border-green-500  font-semibold px-4 py-3 w-full flex justify-center"
+            >
+                Restart
+            </a> 
+        </div>
+      </div>
+      
+</body>
+</html>
+
